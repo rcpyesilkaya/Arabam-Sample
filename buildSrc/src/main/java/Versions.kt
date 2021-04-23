@@ -1,0 +1,18 @@
+object Versions {
+    const val kotlinVersion = "1.3.21"
+    const val navVersion = "2.3.3"
+    const val coreKtx = "1.3.2"
+    const val appcompat = "1.2.0"
+    const val material = "1.2.1"
+    const val constraintlayout = "2.0.4"
+    const val legacySupportV4 = "1.0.0"
+    const val junit = "1.1.2"
+    const val espressoCore = "3.3.0"
+    const val retrofitVersion = "2.9.0"
+    const val rxJavaVersion = "2.2.9"
+    const val lifecycleExtVersion = "2.1.1"
+    const val pagingVersion = "2.1.2"
+    const val glideVersion = "4.9.0"
+    const val daggerHiltVersion = "2.33-beta"
+    const val hiltLifecycleViewmodel="1.0.0-alpha03"
+}
