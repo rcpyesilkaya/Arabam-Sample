@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Arabam-Sample</string>
+    <string name="error">Hata</string>
 </resources>

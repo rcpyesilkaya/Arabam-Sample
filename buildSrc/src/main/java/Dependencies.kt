@@ -17,21 +17,26 @@ object Dependencies {
     const val retrofitRxJava2=  "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofitVersion}"
 
     //RXJAVA
-    const val rxJavaVersion=  "io.reactivex.rxjava2:rxjava:${Versions.rxJavaVersion}"
-    const val rxAndroid=  "io.reactivex.rxjava2:rxandroid:${Versions.rxJavaVersion}"
+    const val rxJavaVersion = "io.reactivex.rxjava2:rxjava:${Versions.rxJavaVersion}"
+    const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxJavaAndroidVersion}"
 
     //LIFECYCLE
     const val lifecycleExtVersion=  "android.arch.lifecycle:extensions:${Versions.lifecycleExtVersion}"
 
     //PAGING
-    const val pagingRunTimeKtx=  "androidx.paging:paging-runtime-ktx:${Versions.pagingVersion}"
-    const val pagingRxJava2Ktx=  "androidx.paging:paging-rxjava2-ktx:${Versions.pagingVersion}"
+    const val pagingRunTimeKtx = "androidx.paging:paging-runtime-ktx:${Versions.pagingVersion}"
+    const val pagingRxJava2Ktx = "androidx.paging:paging-rxjava2-ktx:${Versions.pagingVersion}"
 
     //GLIDE
-    const val glideVersion=  "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    const val glideVersion = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
     //HILT
     const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHiltVersion}"
     const val daggerHiltCompiler = "com.google.dagger:hilt-compiler:${Versions.daggerHiltVersion}"
-    const val hiltLifecycleViewModel =  "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifecycleViewmodel}"
+    const val hiltLifecycleViewModel =
+        "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifecycleViewmodel}"
+
+    const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3Version}"
+    const val okhttp3Interceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp3Version}"
 }

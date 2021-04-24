@@ -25,6 +25,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "api"
+    productFlavors {
+        dev {
+            dimension "api"
+            buildConfigField "String", "BASE_URL", "\"http://sandbox.arabamd.com/\""
+        }
+    }
+    
+    buildFeatures {
+        dataBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -73,4 +86,7 @@ dependencies {
     implementation(Dependencies.daggerHilt)
     kapt(Dependencies.daggerHiltCompiler)
     implementation(Dependencies.hiltLifecycleViewModel)
+
+    implementation(Dependencies.okhttp3)
+    implementation(Dependencies.okhttp3Interceptor)
 }
