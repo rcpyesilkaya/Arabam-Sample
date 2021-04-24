@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.arabam_sample.data.remote.datasource.model.CarResponse
+import com.example.arabam_sample.data.remote.datasource.model.SortModel
 import com.example.arabam_sample.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,10 +21,10 @@ class AdvertListViewModel @Inject constructor(private val advertListUseCase: Adv
 
     private val disposable = CompositeDisposable()
 
-    fun fetchAdvertList(skip: Int, take: Int) {
+    fun fetchAdvertList(skip: Int, take: Int, sortModel: SortModel) {
         _advertListLiveData.value = Resource.loading()
         disposable.add(
-            advertListUseCase.fetchAdvertList(skip, take)
+            advertListUseCase.fetchAdvertList(skip, take, sortModel)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ data ->

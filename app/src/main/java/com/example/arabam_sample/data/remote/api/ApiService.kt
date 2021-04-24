@@ -22,6 +22,8 @@ interface ApiService {
     @GET("/api/v1/listing")
     fun fetchData(
         @Query("skip") skip: Int,
-        @Query("take") take: Int
+        @Query("take") take: Int,
+        @Query("sort") sort: Int?,
+        @Query("sortDirection") sortDirection: Int?
     ): Observable<List<CarResponse>>
 }

@@ -10,6 +10,7 @@ buildscript {
         classpath(ClassPaths.kotlinVersionPlugin)
         classpath(ClassPaths.navVersionPlugin)
         classpath(ClassPaths.daggerHilt)
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
