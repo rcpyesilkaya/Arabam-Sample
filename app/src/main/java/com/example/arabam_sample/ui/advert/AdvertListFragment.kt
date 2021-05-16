@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.example.arabam_sample.R
 import com.example.arabam_sample.data.remote.datasource.model.SortModel
 import com.example.arabam_sample.databinding.FragmentAdvertListBinding
@@ -18,9 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class AdvertListFragment : Fragment() {
 
     private val advertListViewModel: AdvertListViewModel by viewModels()
-
     private val advertAdapter = AdvertListAdapter()
-
     private lateinit var binding: FragmentAdvertListBinding
 
     override fun onCreateView(
@@ -36,26 +35,39 @@ class AdvertListFragment : Fragment() {
         initLiveData()
         initRecyclerView()
         val sort = SortModel(1, 0)
-        advertListViewModel.fetchAdvertList(1, 20, sort)
+        advertListViewModel.loadList(sort)
     }
 
     private fun initRecyclerView() {
-        binding.recyclerView.adapter = advertAdapter
+        binding.rvCars.adapter = advertAdapter
     }
 
     private fun initLiveData() {
-        advertListViewModel.advertListLiveData.observe(viewLifecycleOwner, { resource ->
+        advertListViewModel.advertListLiveData.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is Resource.Success -> {
+                    with(binding) {
+                        rvCars.visibility = View.VISIBLE
+                        pbLoading.visibility = View.GONE
+                        tvError.visibility = View.GONE
+                    }
                     resource.data?.let { advertAdapter.submitList(it) }
                 }
                 is Resource.Loading -> {
+                    with(binding) {
+                        pbLoading.visibility = View.VISIBLE
+                        tvError.visibility = View.GONE
+                        rvCars.visibility = View.GONE
+                    }
                 }
                 is Resource.Failed -> {
-                }
-                else -> {
+                    with(binding) {
+                        pbLoading.visibility = View.GONE
+                        tvError.visibility = View.VISIBLE
+                        rvCars.visibility = View.GONE
+                    }
                 }
             }
-        })
+        }
     }
 }
